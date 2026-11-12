@@ -1,0 +1,22 @@
+[project]
+name = "kranos"
+version = "0.1.0"
+description = "Experiments testing the Kronos candlestick foundation model on Indian equities"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "torch>=2.2",
+    "numpy<2.1",
+    "pandas==2.2.2",
+    "einops==0.8.1",
+    "huggingface_hub==0.33.1",
+    "safetensors==0.6.2",
+    "tqdm==4.67.1",
+    "matplotlib==3.9.3",
+    "scipy>=1.11",
+    "pyarrow>=15",
+    "yfinance>=0.2.50",
+    "modal>=1.6.4",
+]
+
+[tool.uv]
+package = false

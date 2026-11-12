@@ -1,0 +1,13 @@
+{
+  "model": "small",
+  "lookback": 90,
+  "horizon": 1,
+  "n_paths": 10,
+  "T": 0.6,
+  "top_p": 0.9,
+  "last_target_day": "2026-11-11",
+  "seed_base": 900,
+  "chunks": 5,
+  "gpu": "Tesla T4",
+  "gpu_seconds_total": 3332.6
+}

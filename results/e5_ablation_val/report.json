@@ -1,0 +1,133 @@
+{
+  "common_obs": 10622,
+  "days": 113,
+  "obs_per_variant_before_intersection": {
+    "B": 10735,
+    "V1_base": 10735,
+    "V2_lookback400": 10622
+  },
+  "variants": {
+    "B": {
+      "signal": "B",
+      "target": "fwd10",
+      "raw": {
+        "mean_ic": 0.0139,
+        "std": 0.1479,
+        "icir": 0.094,
+        "pct_days_positive": 0.54,
+        "days": 113,
+        "independent_periods": 11.3,
+        "t_stat_overlap_adjusted": 0.31
+      },
+      "factor_stripped": {
+        "mean_ic": -0.0029,
+        "std": 0.1134,
+        "icir": -0.026,
+        "pct_days_positive": 0.531,
+        "days": 113,
+        "independent_periods": 11.3,
+        "t_stat_overlap_adjusted": -0.09
+      },
+      "rank_corr_with": {
+        "rev10": 0.495,
+        "mom20": -0.57,
+        "lowvol20": 0.005
+      },
+      "top_minus_bottom_quintile_pct": 0.219,
+      "coverage_of_10_path_range": 0.309
+    },
+    "V1_base": {
+      "signal": "V1_base",
+      "target": "fwd10",
+      "raw": {
+        "mean_ic": 0.019,
+        "std": 0.174,
+        "icir": 0.109,
+        "pct_days_positive": 0.558,
+        "days": 113,
+        "independent_periods": 11.3,
+        "t_stat_overlap_adjusted": 0.37
+      },
+      "factor_stripped": {
+        "mean_ic": 0.0073,
+        "std": 0.1367,
+        "icir": 0.053,
+        "pct_days_positive": 0.575,
+        "days": 113,
+        "independent_periods": 11.3,
+        "t_stat_overlap_adjusted": 0.18
+      },
+      "rank_corr_with": {
+        "rev10": 0.479,
+        "mom20": -0.568,
+        "lowvol20": 0.057
+      },
+      "top_minus_bottom_quintile_pct": 0.205,
+      "coverage_of_10_path_range": 0.28
+    },
+    "V2_lookback400": {
+      "signal": "V2_lookback400",
+      "target": "fwd10",
+      "raw": {
+        "mean_ic": 0.0203,
+        "std": 0.2034,
+        "icir": 0.1,
+        "pct_days_positive": 0.531,
+        "days": 113,
+        "independent_periods": 11.3,
+        "t_stat_overlap_adjusted": 0.34
+      },
+      "factor_stripped": {
+        "mean_ic": -0.0148,
+        "std": 0.1693,
+        "icir": -0.087,
+        "pct_days_positive": 0.54,
+        "days": 113,
+        "independent_periods": 11.3,
+        "t_stat_overlap_adjusted": -0.29
+      },
+      "rank_corr_with": {
+        "rev10": 0.254,
+        "mom20": -0.377,
+        "lowvol20": 0.169
+      },
+      "top_minus_bottom_quintile_pct": 0.216,
+      "coverage_of_10_path_range": 0.273
+    },
+    "V3_1day": {
+      "signal": "V3_step1",
+      "target": "fwd1",
+      "raw": {
+        "mean_ic": 0.0202,
+        "std": 0.1481,
+        "icir": 0.137,
+        "pct_days_positive": 0.54,
+        "days": 113,
+        "independent_periods": 113.0,
+        "t_stat_overlap_adjusted": 1.45
+      },
+      "factor_stripped": {
+        "mean_ic": 0.0138,
+        "std": 0.1259,
+        "icir": 0.109,
+        "pct_days_positive": 0.531,
+        "days": 113,
+        "independent_periods": 113.0,
+        "t_stat_overlap_adjusted": 1.16
+      },
+      "rank_corr_with": {
+        "rev10": 0.312,
+        "mom20": -0.254,
+        "lowvol20": 0.018
+      },
+      "top_minus_bottom_quintile_pct": 0.016
+    }
+  },
+  "decision": {
+    "rule": "highest factor-stripped RankIC among variants with t >= 1.0; else B",
+    "eligible": {
+      "V3_1day": 0.0138
+    },
+    "chosen_for_test": "V3_1day"
+  }
+}

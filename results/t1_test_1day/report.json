@@ -1,0 +1,133 @@
+{
+  "run": {
+    "model": "small",
+    "lookback": 90,
+    "horizon": 1,
+    "n_paths": 10,
+    "T": 0.6,
+    "top_p": 0.9,
+    "last_target_day": "2026-11-11",
+    "seed_base": 900,
+    "chunks": 5,
+    "gpu": "Tesla T4",
+    "gpu_seconds_total": 3332.6
+  },
+  "obs": 44251,
+  "days": 458,
+  "first_day": "2025-01-01",
+  "last_day": "2026-11-09",
+  "stocks_per_day": {
+    "min": 95,
+    "max": 100
+  },
+  "verdict": {
+    "criterion": "factor-stripped RankIC > 0 and t >= 2.0",
+    "result": "PASS"
+  },
+  "factor_stripped_rank_ic_fwd1": {
+    "mean_ic": 0.0202,
+    "std": 0.1094,
+    "icir": 0.185,
+    "pct_days_positive": 0.583,
+    "days": 458,
+    "independent_periods": 458.0,
+    "t_stat_overlap_adjusted": 3.96
+  },
+  "raw_rank_ic_fwd1": {
+    "mean_ic": 0.0246,
+    "std": 0.1238,
+    "icir": 0.199,
+    "pct_days_positive": 0.568,
+    "days": 458,
+    "independent_periods": 458.0,
+    "t_stat_overlap_adjusted": 4.25
+  },
+  "baselines_rank_ic_fwd1": {
+    "rev5": {
+      "mean_ic": 0.0175,
+      "std": 0.1841,
+      "icir": 0.095,
+      "pct_days_positive": 0.563,
+      "days": 458,
+      "independent_periods": 458.0,
+      "t_stat_overlap_adjusted": 2.04
+    },
+    "rev10": {
+      "mean_ic": 0.0066,
+      "std": 0.1804,
+      "icir": 0.036,
+      "pct_days_positive": 0.504,
+      "days": 458,
+      "independent_periods": 458.0,
+      "t_stat_overlap_adjusted": 0.78
+    },
+    "mom20": {
+      "mean_ic": -0.0014,
+      "std": 0.1858,
+      "icir": -0.008,
+      "pct_days_positive": 0.5,
+      "days": 458,
+      "independent_periods": 458.0,
+      "t_stat_overlap_adjusted": -0.17
+    },
+    "lowvol20": {
+      "mean_ic": 0.0077,
+      "std": 0.2018,
+      "icir": 0.038,
+      "pct_days_positive": 0.502,
+      "days": 458,
+      "independent_periods": 458.0,
+      "t_stat_overlap_adjusted": 0.82
+    }
+  },
+  "factor_stripped_by_quarter": {
+    "2025Q1": {
+      "mean_ic": 0.0349,
+      "days": 61
+    },
+    "2025Q2": {
+      "mean_ic": 0.0161,
+      "days": 61
+    },
+    "2025Q3": {
+      "mean_ic": 0.0123,
+      "days": 64
+    },
+    "2025Q4": {
+      "mean_ic": 0.0112,
+      "days": 62
+    },
+    "2026Q1": {
+      "mean_ic": 0.0036,
+      "days": 59
+    },
+    "2026Q2": {
+      "mean_ic": 0.0106,
+      "days": 60
+    },
+    "2026Q3": {
+      "mean_ic": 0.0294,
+      "days": 65
+    },
+    "2026Q4": {
+      "mean_ic": 0.0737,
+      "days": 26
+    }
+  },
+  "rank_corr_with": {
+    "rev5": 0.27,
+    "rev10": 0.274,
+    "mom20": -0.236,
+    "lowvol20": 0.039
+  },
+  "top_minus_bottom_quintile_fwd1_pct": {
+    "raw": 0.1007,
+    "factor_stripped": 0.0529
+  },
+  "top_quintile_daily_turnover": 0.616,
+  "validation_reference": {
+    "factor_stripped_mean_ic": 0.0138,
+    "t": 1.16,
+    "days": 113
+  }
+}

@@ -1,0 +1,21 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.modal.toml
+.DS_Store
+
+# market data is re-downloaded by each experiment's prepare(); only the universe list is kept
+data/raw/
+
+# large experiment outputs (forecast paths, signal panels); reports and plots are kept
+results/**/*.npy
+results/**/*.npz
+results/**/*.parquet
+
+# upstream Kronos: only the model code and licence are needed
+vendor/Kronos/*
+!vendor/Kronos/model/
+!vendor/Kronos/LICENSE

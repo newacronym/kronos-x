@@ -1,0 +1,21 @@
+{
+  "horizon": 10,
+  "n_paths": 10,
+  "T": 0.6,
+  "top_p": 0.9,
+  "last_target_day": "2024-12-31",
+  "model": "base",
+  "lookback": 90,
+  "seed_base": 500,
+  "chunks": 6,
+  "gpu": "Tesla T4",
+  "gpu_seconds_total": 7364.9,
+  "gpu_seconds_per_chunk": [
+    1306.4,
+    1325.0,
+    1310.4,
+    1269.9,
+    1507.8,
+    645.3
+  ]
+}

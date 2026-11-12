@@ -1,0 +1,86 @@
+{
+  "ticker": "RELIANCE.NS",
+  "lookback": 90,
+  "horizon": 10,
+  "torch": "2.15.0+cu132",
+  "device": "cuda:0",
+  "gpu": "Tesla T4",
+  "data": {
+    "rows": 2926,
+    "first": "2015-01-01",
+    "last": "2026-11-11",
+    "max_calendar_gap_days": 5,
+    "bars_with_gap_over_10pct": 0,
+    "bad_ohlc_rows": 0
+  },
+  "origins": {
+    "n": 100,
+    "first": "2024-07-01",
+    "last": "2024-11-22"
+  },
+  "timings": [
+    {
+      "model": "mini",
+      "params_M": 4.1,
+      "series": 100,
+      "samples": 1,
+      "seconds": 1.04,
+      "seqs_per_call": 1000
+    },
+    {
+      "model": "mini",
+      "params_M": 4.1,
+      "series": 100,
+      "samples": 10,
+      "seconds": 3.62,
+      "seqs_per_call": 1000
+    },
+    {
+      "model": "small",
+      "params_M": 24.7,
+      "series": 100,
+      "samples": 1,
+      "seconds": 2.04,
+      "seqs_per_call": 1000
+    },
+    {
+      "model": "small",
+      "params_M": 24.7,
+      "series": 100,
+      "samples": 10,
+      "seconds": 14.62,
+      "seqs_per_call": 1000
+    },
+    {
+      "model": "base",
+      "params_M": 102.3,
+      "series": 100,
+      "samples": 1,
+      "seconds": 6.43,
+      "seqs_per_call": 1000
+    },
+    {
+      "model": "base",
+      "params_M": 102.3,
+      "series": 100,
+      "samples": 10,
+      "seconds": 59.38,
+      "seqs_per_call": 1000
+    }
+  ],
+  "determinism": {
+    "same_seed_max_abs_diff": 0.0,
+    "diff_seed_mean_abs_diff_pct": 0.3714093565940857
+  },
+  "preview_single_stock": {
+    "note": "100 overlapping 10-day windows on one stock; heavily autocorrelated, so a sanity check, not evidence",
+    "direction_hit_rate_kronos": 0.34,
+    "direction_hit_rate_always_up": 0.31,
+    "rank_corr_kronos": 0.1647764776477648,
+    "rank_corr_momentum20": -0.2778157815781578,
+    "mae_10d_return_kronos_pct": 5.749105416966165,
+    "mae_10d_return_random_walk_pct": 3.4634151170815377,
+    "mean_abs_predicted_move_pct": 4.270587721280085,
+    "mean_abs_actual_move_pct": 3.4634151170815377
+  }
+}

@@ -1,0 +1,101 @@
+ticker,industry,rows,first,last,max_calendar_gap_days,bars_with_gap_over_10pct,bad_ohlc_rows,suspect_moves,bars_before_val,bars_before_test,missing_val_days,missing_test_days,eligible_val_start,eligible_test_start
+ABB.NS,Capital Goods,2926,2015-01-01,2026-11-11,5,1,0,[],2341,2467,0,1,True,True
+ADANIENSOL.NS,Power,2781,2015-07-31,2026-11-11,5,5,0,[],2196,2322,0,1,True,True
+ADANIENT.NS,Metals & Mining,2926,2015-01-01,2026-11-11,5,3,0,"['2015-06-03', '2019-05-20', '2023-02-01', '2023-02-02']",2341,2467,0,1,True,True
+ADANIGREEN.NS,Power,2072,2018-06-18,2026-11-11,5,5,0,[],1487,1613,0,1,True,True
+ADANIPORTS.NS,Services,2925,2015-01-01,2026-11-11,5,0,0,[],2340,2466,0,1,True,True
+ADANIPOWER.NS,Power,2926,2015-01-01,2026-11-11,5,5,0,"['2018-10-10', '2020-03-12']",2341,2467,0,1,True,True
+AMBUJACEM.NS,Construction Materials,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+APOLLOHOSP.NS,Healthcare,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+ASIANPAINT.NS,Consumer Durables,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+DMART.NS,Consumer Services,2381,2017-03-21,2026-11-11,5,0,0,[],1796,1922,0,1,True,True
+AXISBANK.NS,Financial Services,2926,2015-01-01,2026-11-11,5,1,0,['2020-03-23'],2341,2467,0,1,True,True
+BSE.NS,Financial Services,2411,2017-02-03,2026-11-11,5,3,0,[],1826,1952,0,1,True,True
+BAJAJ-AUTO.NS,Automobile and Auto Components,2925,2015-01-01,2026-11-11,5,0,0,[],2340,2466,0,1,True,True
+BAJFINANCE.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+BAJAJFINSV.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2020-03-23'],2341,2467,0,1,True,True
+BAJAJHLDNG.NS,Financial Services,2926,2015-01-01,2026-11-11,5,1,0,[],2341,2467,0,1,True,True
+BANKBARODA.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2017-10-25'],2341,2467,0,1,True,True
+BEL.NS,Capital Goods,2926,2015-01-01,2026-11-11,5,1,0,[],2341,2467,0,1,True,True
+BPCL.NS,Oil Gas & Consumable Fuels,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+BHARTIARTL.NS,Telecommunication,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+BOSCHLTD.NS,Automobile and Auto Components,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+BRITANNIA.NS,Fast Moving Consumer Goods,2921,2015-01-01,2026-11-11,5,0,0,[],2336,2462,0,1,True,True
+CGPOWER.NS,Capital Goods,2926,2015-01-01,2026-11-11,5,3,0,[],2341,2467,0,1,True,True
+CANBK.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2017-10-25'],2341,2467,0,1,True,True
+CHOLAFIN.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2020-03-23'],2341,2467,0,1,True,True
+CIPLA.NS,Healthcare,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+COALINDIA.NS,Oil Gas & Consumable Fuels,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+CUMMINSIND.NS,Capital Goods,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+DLF.NS,Realty,2920,2015-01-01,2026-11-11,5,1,0,[],2335,2461,0,1,True,True
+DIVISLAB.NS,Healthcare,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+DRREDDY.NS,Healthcare,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+EICHERMOT.NS,Automobile and Auto Components,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+ETERNAL.NS,Consumer Services,1306,2021-07-23,2026-11-11,7,0,0,[],723,849,0,3,True,True
+GAIL.NS,Oil Gas & Consumable Fuels,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+GODREJCP.NS,Fast Moving Consumer Goods,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+GRASIM.NS,Construction Materials,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+HCLTECH.NS,Information Technology,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+HDFCAMC.NS,Financial Services,2037,2018-08-06,2026-11-11,5,2,0,[],1452,1578,0,1,True,True
+HDFCBANK.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+HDFCLIFE.NS,Financial Services,2216,2017-11-17,2026-11-11,5,0,0,[],1631,1757,0,1,True,True
+HINDALCO.NS,Metals & Mining,2926,2015-01-01,2026-11-11,5,1,0,[],2341,2467,0,1,True,True
+HAL.NS,Capital Goods,2126,2018-04-02,2026-11-11,5,2,0,[],1541,1667,0,1,True,True
+HINDUNILVR.NS,Fast Moving Consumer Goods,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+HINDZINC.NS,Metals & Mining,2926,2015-01-01,2026-11-11,5,2,0,['2024-05-21'],2341,2467,0,1,True,True
+POWERINDIA.NS,Capital Goods,1636,2020-03-30,2026-11-11,5,2,0,[],1051,1177,0,1,True,True
+HYUNDAI.NS,Automobile and Auto Components,507,2024-10-22,2026-11-11,4,0,0,[],0,48,75,1,False,False
+ICICIBANK.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+ITC.NS,Fast Moving Consumer Goods,2927,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,0,True,True
+IOC.NS,Oil Gas & Consumable Fuels,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+IRFC.NS,Financial Services,1426,2021-01-29,2026-11-11,5,3,0,['2024-01-16'],841,967,0,1,True,True
+INFY.NS,Information Technology,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+INDIGO.NS,Services,2714,2015-11-10,2026-11-11,5,0,0,[],2129,2255,0,1,True,True
+JSWSTEEL.NS,Metals & Mining,2921,2015-01-01,2026-11-11,5,0,0,[],2336,2462,0,1,True,True
+JINDALSTEL.NS,Metals & Mining,2926,2015-01-01,2026-11-11,5,1,0,"['2015-02-19', '2020-04-07']",2341,2467,0,1,True,True
+JIOFIN.NS,Financial Services,793,2023-08-21,2026-11-11,4,0,0,[],208,334,0,1,True,True
+KOTAKBANK.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+LTM.NS,Information Technology,2541,2016-07-21,2026-11-11,5,1,0,[],1956,2082,0,1,True,True
+LT.NS,Construction,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+M&M.NS,Automobile and Auto Components,2925,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,2,True,True
+MARUTI.NS,Automobile and Auto Components,2925,2015-01-01,2026-11-11,5,0,0,[],2340,2466,0,1,True,True
+MAXHEALTH.NS,Healthcare,1538,2020-08-21,2026-11-11,5,0,0,[],953,1079,0,1,True,True
+MAZDOCK.NS,Capital Goods,1502,2020-10-12,2026-11-11,5,1,0,[],917,1043,0,1,True,True
+MUTHOOTFIN.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+NTPC.NS,Power,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+NESTLEIND.NS,Fast Moving Consumer Goods,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+ONGC.NS,Oil Gas & Consumable Fuels,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+PIDILITIND.NS,Chemicals,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+POLYCAB.NS,Capital Goods,1864,2019-04-16,2026-11-11,5,1,0,[],1279,1405,0,1,True,True
+PFC.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+POWERGRID.NS,Power,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+PNB.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2017-10-25'],2341,2467,0,1,True,True
+RELIANCE.NS,Oil Gas & Consumable Fuels,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+SBILIFE.NS,Financial Services,2248,2017-10-03,2026-11-11,5,2,0,[],1663,1789,0,1,True,True
+MOTHERSON.NS,Automobile and Auto Components,2925,2015-01-01,2026-11-11,5,1,0,['2022-01-14'],2340,2466,0,1,True,True
+SHRIRAMFIN.NS,Financial Services,2921,2015-01-01,2026-11-11,5,0,0,[],2336,2462,0,1,True,True
+ENRIN.NS,Capital Goods,345,2025-06-19,2026-11-11,4,0,0,[],0,0,123,115,False,False
+SIEMENS.NS,Capital Goods,2926,2015-01-01,2026-11-11,5,1,0,[],2341,2467,0,1,True,True
+SOLARINDS.NS,Chemicals,2926,2015-01-01,2026-11-11,5,1,0,[],2341,2467,0,1,True,True
+SBIN.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2017-10-25'],2341,2467,0,1,True,True
+SUNPHARMA.NS,Healthcare,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TVSMOTOR.NS,Automobile and Auto Components,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TATACAP.NS,Financial Services,266,2025-10-13,2026-11-11,4,0,0,[],0,0,123,194,False,False
+TCS.NS,Information Technology,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TATACONSUM.NS,Fast Moving Consumer Goods,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TMCV.NS,Capital Goods,246,2025-11-12,2026-11-11,4,0,0,[],0,0,123,214,False,False
+TMPV.NS,Automobile and Auto Components,2926,2015-01-01,2026-11-11,5,1,0,['2025-10-14'],2341,2467,0,1,True,True
+TATAPOWER.NS,Power,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TATASTEEL.NS,Metals & Mining,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TECHM.NS,Information Technology,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TITAN.NS,Consumer Durables,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+TORNTPHARM.NS,Healthcare,2925,2015-01-01,2026-11-11,5,0,0,[],2340,2466,0,1,True,True
+TRENT.NS,Consumer Services,2926,2015-01-01,2026-11-11,5,4,0,['2026-01-01'],2341,2467,0,1,True,True
+ULTRACEMCO.NS,Construction Materials,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+UNIONBANK.NS,Financial Services,2926,2015-01-01,2026-11-11,5,0,0,['2017-10-25'],2341,2467,0,1,True,True
+VBL.NS,Fast Moving Consumer Goods,2472,2016-11-08,2026-11-11,5,3,0,[],1887,2013,0,1,True,True
+VAML.NS,Metals & Mining,103,2026-06-15,2026-11-11,4,0,0,[],0,0,123,357,False,False
+VEDL.NS,Metals & Mining,2926,2015-01-01,2026-11-11,5,1,0,['2026-04-30'],2341,2467,0,1,True,True
+IDEA.NS,Telecommunication,2926,2015-01-01,2026-11-11,5,2,0,"['2017-01-30', '2019-07-29', '2019-11-19', '2020-02-19', '2020-03-13', '2020-03-18', '2020-09-03', '2021-09-16']",2341,2467,0,1,True,True
+WIPRO.NS,Information Technology,2926,2015-01-01,2026-11-11,5,0,0,[],2341,2467,0,1,True,True
+ZYDUSLIFE.NS,Healthcare,2920,2015-01-01,2026-11-11,5,0,0,[],2335,2461,0,1,True,True

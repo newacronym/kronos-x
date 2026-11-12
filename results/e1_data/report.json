@@ -1,0 +1,202 @@
+{
+  "universe_file": "data/universe/nifty100_2026-11-12.csv",
+  "members": 100,
+  "downloaded": 100,
+  "failed": {},
+  "calendar": {
+    "source": "^NSEI",
+    "val_days": 123,
+    "test_days": 460,
+    "last_day": "2026-11-11"
+  },
+  "history_start_median": "2015-01-01",
+  "eligible_at_val_start": 95,
+  "eligible_at_test_start": 95,
+  "late_listings": [
+    {
+      "ticker": "HYUNDAI.NS",
+      "first": "2024-10-22"
+    },
+    {
+      "ticker": "ENRIN.NS",
+      "first": "2025-06-19"
+    },
+    {
+      "ticker": "TATACAP.NS",
+      "first": "2025-10-13"
+    },
+    {
+      "ticker": "TMCV.NS",
+      "first": "2025-11-12"
+    },
+    {
+      "ticker": "VAML.NS",
+      "first": "2026-06-15"
+    }
+  ],
+  "tickers_with_suspect_moves": [
+    {
+      "ticker": "ADANIENT.NS",
+      "suspect_moves": [
+        "2015-06-03",
+        "2019-05-20",
+        "2023-02-01",
+        "2023-02-02"
+      ]
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "suspect_moves": [
+        "2018-10-10",
+        "2020-03-12"
+      ]
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "suspect_moves": [
+        "2020-03-23"
+      ]
+    },
+    {
+      "ticker": "BAJAJFINSV.NS",
+      "suspect_moves": [
+        "2020-03-23"
+      ]
+    },
+    {
+      "ticker": "BANKBARODA.NS",
+      "suspect_moves": [
+        "2017-10-25"
+      ]
+    },
+    {
+      "ticker": "CANBK.NS",
+      "suspect_moves": [
+        "2017-10-25"
+      ]
+    },
+    {
+      "ticker": "CHOLAFIN.NS",
+      "suspect_moves": [
+        "2020-03-23"
+      ]
+    },
+    {
+      "ticker": "HINDZINC.NS",
+      "suspect_moves": [
+        "2024-05-21"
+      ]
+    },
+    {
+      "ticker": "IRFC.NS",
+      "suspect_moves": [
+        "2024-01-16"
+      ]
+    },
+    {
+      "ticker": "JINDALSTEL.NS",
+      "suspect_moves": [
+        "2015-02-19",
+        "2020-04-07"
+      ]
+    },
+    {
+      "ticker": "PNB.NS",
+      "suspect_moves": [
+        "2017-10-25"
+      ]
+    },
+    {
+      "ticker": "MOTHERSON.NS",
+      "suspect_moves": [
+        "2022-01-14"
+      ]
+    },
+    {
+      "ticker": "SBIN.NS",
+      "suspect_moves": [
+        "2017-10-25"
+      ]
+    },
+    {
+      "ticker": "TMPV.NS",
+      "suspect_moves": [
+        "2025-10-14"
+      ]
+    },
+    {
+      "ticker": "TRENT.NS",
+      "suspect_moves": [
+        "2026-01-01"
+      ]
+    },
+    {
+      "ticker": "UNIONBANK.NS",
+      "suspect_moves": [
+        "2017-10-25"
+      ]
+    },
+    {
+      "ticker": "VEDL.NS",
+      "suspect_moves": [
+        "2026-04-30"
+      ]
+    },
+    {
+      "ticker": "IDEA.NS",
+      "suspect_moves": [
+        "2017-01-30",
+        "2019-07-29",
+        "2019-11-19",
+        "2020-02-19",
+        "2020-03-13",
+        "2020-03-18",
+        "2020-09-03",
+        "2021-09-16"
+      ]
+    }
+  ],
+  "tickers_missing_over_5_val_days": [
+    {
+      "ticker": "HYUNDAI.NS",
+      "missing_val_days": 75
+    },
+    {
+      "ticker": "ENRIN.NS",
+      "missing_val_days": 123
+    },
+    {
+      "ticker": "TATACAP.NS",
+      "missing_val_days": 123
+    },
+    {
+      "ticker": "TMCV.NS",
+      "missing_val_days": 123
+    },
+    {
+      "ticker": "VAML.NS",
+      "missing_val_days": 123
+    }
+  ],
+  "bad_ohlc_rows_total": 0,
+  "rows_total": 262801,
+  "industries": {
+    "Financial Services": 23,
+    "Capital Goods": 11,
+    "Automobile and Auto Components": 9,
+    "Metals & Mining": 8,
+    "Healthcare": 8,
+    "Fast Moving Consumer Goods": 7,
+    "Power": 6,
+    "Oil Gas & Consumable Fuels": 6,
+    "Information Technology": 6,
+    "Construction Materials": 3,
+    "Consumer Services": 3,
+    "Services": 2,
+    "Consumer Durables": 2,
+    "Telecommunication": 2,
+    "Chemicals": 2,
+    "Realty": 1,
+    "Construction": 1
+  }
+}
