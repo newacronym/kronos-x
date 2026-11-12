@@ -1,0 +1,8 @@
+{
+  "requested": 501,
+  "ok": 499,
+  "failed": {
+    "BAGMANE.NS": "No data returned for BAGMANE.NS",
+    "DUMMYHEG.NS": "No data returned for DUMMYHEG.NS"
+  }
+}

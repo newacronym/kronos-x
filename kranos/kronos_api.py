@@ -38,10 +38,14 @@ def _free(device: str):
         torch.mps.empty_cache()
 
 
-def load_predictor(size: str = "small", device: str | None = None) -> KronosPredictor:
+def load_predictor(size: str = "small", device: str | None = None, checkpoint: str | None = None) -> KronosPredictor:
+    """Pre-trained predictor, or a fine-tuned one from `checkpoint` (a save_pretrained directory).
+
+    The tokenizer is always the pre-trained one: fine-tuning (E8) keeps it frozen.
+    """
     model_id, tok_id, ctx = MODELS[size]
     tokenizer = KronosTokenizer.from_pretrained(tok_id)
-    model = Kronos.from_pretrained(model_id)
+    model = Kronos.from_pretrained(checkpoint or model_id)
     tokenizer.eval()
     model.eval()
     return KronosPredictor(model, tokenizer, device=device or best_device(), max_context=ctx)

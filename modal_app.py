@@ -10,6 +10,7 @@ the `kranos-data` volume. Then either
 """
 
 import importlib
+import inspect
 import io
 import os
 import sys
@@ -25,6 +26,8 @@ GPU = os.environ.get("KRANOS_GPU", "T4")
 app = modal.App("kranos")
 hf_cache = modal.Volume.from_name("kranos-hf-cache", create_if_missing=True)
 data_vol = modal.Volume.from_name("kranos-data", create_if_missing=True)
+ckpt_vol = modal.Volume.from_name("kranos-ckpt", create_if_missing=True)  # fine-tuned weights (E8)
+CKPT = "/ckpt"
 
 image = (
     modal.Image.debian_slim(python_version="3.12")
@@ -39,7 +42,8 @@ image = (
     .add_local_dir("vendor/Kronos/model", f"{PROJECT}/vendor/Kronos/model")
 )
 gpu_fn = dict(image=image, gpu=GPU, cpu=4, memory=16384, timeout=4 * 3600,
-              volumes={"/cache": hf_cache, f"{PROJECT}/data": data_vol})
+              volumes={"/cache": hf_cache, f"{PROJECT}/data": data_vol, CKPT: ckpt_vol})
+TRAIN_GPU = os.environ.get("KRANOS_TRAIN_GPU", "T4")
 
 
 def _enter_project():
@@ -74,7 +78,9 @@ def forecast_chunk(cfg: dict, days: list[str]) -> dict:
     np.random.seed(cfg["seed"])
     device = best_device()
     bars = load_cached(list(nifty100()["ticker"]))
-    pred = load_predictor(cfg["model"], device)
+    if cfg.get("checkpoint"):  # a fine-tuned predictor saved by finetune_run (path inside /ckpt)
+        ckpt_vol.reload()
+    pred = load_predictor(cfg["model"], device, checkpoint=cfg.get("checkpoint"))
     t0 = time.perf_counter()
     paths, index = forecast_days(pred, bars, [pd.Timestamp(d) for d in days], lookback=cfg["lookback"],
                                  horizon=cfg["horizon"], n_paths=cfg["n_paths"], T=cfg["T"], top_p=cfg["top_p"],
@@ -85,6 +91,18 @@ def forecast_chunk(cfg: dict, days: list[str]) -> dict:
     index.to_parquet(i_buf, index=False)
     return {"paths": p_buf.getvalue(), "index": i_buf.getvalue(), "gpu_seconds": time.perf_counter() - t0,
             "gpu": torch.cuda.get_device_name(0) if device.startswith("cuda") else device}
+
+
+@app.function(**{**gpu_fn, "gpu": TRAIN_GPU, "timeout": 6 * 3600})
+def finetune_run(cfg: dict) -> dict:
+    """Fine-tune one predictor (E8). kranos.finetune.train writes checkpoints under cfg["out_dir"] in /ckpt."""
+    _enter_project()
+    from kranos.finetune import train
+
+    result = train(cfg)
+    ckpt_vol.commit()
+    hf_cache.commit()
+    return result
 
 
 @app.local_entrypoint()
@@ -99,7 +117,8 @@ def main(exp: str):
     print(f"synced data/ to volume kranos-data; running {module} on {GPU}")
 
     if hasattr(mod, "orchestrate"):
-        mod.orchestrate(forecast_chunk)
+        extra = {"finetune_run": finetune_run} if "finetune_run" in inspect.signature(mod.orchestrate).parameters else {}
+        mod.orchestrate(forecast_chunk, **extra)
         return
 
     blob = run_experiment.remote(module)

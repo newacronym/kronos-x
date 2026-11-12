@@ -1,0 +1,341 @@
+{
+  "window": {
+    "start": "2024-07-01",
+    "end": "2024-12-31"
+  },
+  "eval_cfg": {
+    "model": "small",
+    "lookback": 90,
+    "horizon": 1,
+    "n_paths": 10,
+    "T": 0.6,
+    "top_p": 0.9
+  },
+  "runs": {
+    "zeroshot": {
+      "model": "small",
+      "lookback": 90,
+      "horizon": 1,
+      "n_paths": 10,
+      "T": 0.6,
+      "top_p": 0.9,
+      "variant": "zeroshot",
+      "checkpoint": null,
+      "last_target_day": "2024-12-31",
+      "seed_base": 800,
+      "chunks": 5,
+      "gpu": "Tesla T4",
+      "gpu_seconds_total": 998.4,
+      "gpu_seconds_per_chunk": [
+        181.4,
+        229.1,
+        201.3,
+        223.2,
+        163.5
+      ],
+      "obs": 11590,
+      "days": 122
+    },
+    "lr1e-5": {
+      "model": "small",
+      "lookback": 90,
+      "horizon": 1,
+      "n_paths": 10,
+      "T": 0.6,
+      "top_p": 0.9,
+      "variant": "lr1e-5",
+      "checkpoint": "/ckpt/e8/lr1e-5/best",
+      "last_target_day": "2024-12-31",
+      "seed_base": 800,
+      "chunks": 5,
+      "gpu": "Tesla T4",
+      "gpu_seconds_total": 939.8,
+      "gpu_seconds_per_chunk": [
+        179.4,
+        229.8,
+        196.2,
+        168.4,
+        166.1
+      ],
+      "obs": 11590,
+      "days": 122
+    },
+    "lr4e-5": {
+      "model": "small",
+      "lookback": 90,
+      "horizon": 1,
+      "n_paths": 10,
+      "T": 0.6,
+      "top_p": 0.9,
+      "variant": "lr4e-5",
+      "checkpoint": "/ckpt/e8/lr4e-5/best",
+      "last_target_day": "2024-12-31",
+      "seed_base": 800,
+      "chunks": 5,
+      "gpu": "Tesla T4",
+      "gpu_seconds_total": 1002.3,
+      "gpu_seconds_per_chunk": [
+        234.2,
+        236.5,
+        196.6,
+        168.5,
+        166.5
+      ],
+      "obs": 11590,
+      "days": 122
+    }
+  },
+  "variants_missing": [],
+  "obs_per_variant_before_intersection": {
+    "zeroshot": 11590,
+    "lr1e-5": 11590,
+    "lr4e-5": 11590
+  },
+  "common_obs": 11590,
+  "days": 122,
+  "first_day": "2024-07-04",
+  "last_day": "2024-12-30",
+  "stocks_per_day": {
+    "min": 95,
+    "max": 95
+  },
+  "controls4": [
+    "rev5",
+    "rev10",
+    "mom20",
+    "lowvol20"
+  ],
+  "controls9": [
+    "rev5",
+    "rev10",
+    "mom20",
+    "lowvol20",
+    "rev1",
+    "rev2",
+    "rev3",
+    "close_in_range",
+    "intraday_rev"
+  ],
+  "variants": {
+    "zeroshot": {
+      "raw": {
+        "mean_ic": 0.0193,
+        "std": 0.1403,
+        "icir": 0.137,
+        "pct_days_positive": 0.533,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 1.52
+      },
+      "stripped4": {
+        "mean_ic": 0.0148,
+        "std": 0.1213,
+        "icir": 0.122,
+        "pct_days_positive": 0.508,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 1.35
+      },
+      "stripped9": {
+        "mean_ic": 0.0167,
+        "std": 0.117,
+        "icir": 0.143,
+        "pct_days_positive": 0.484,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 1.58
+      },
+      "top_minus_bottom_quintile_fwd1_pct": {
+        "raw": 0.0269,
+        "stripped4": -0.0003,
+        "stripped9": 0.0054
+      },
+      "calibration_1d": {
+        "coverage_of_path_range": 0.497,
+        "expected_if_calibrated": 0.818,
+        "mean_range_width_pct_of_close0": 2.508,
+        "mean_abs_actual_1d_return_pct": 1.345
+      },
+      "rank_corr_with": {
+        "rev5": 0.293,
+        "rev10": 0.297,
+        "mom20": -0.238,
+        "lowvol20": 0.014,
+        "rev1": 0.221,
+        "rev2": 0.233,
+        "rev3": 0.264,
+        "close_in_range": 0.302,
+        "intraday_rev": 0.238
+      }
+    },
+    "lr1e-5": {
+      "raw": {
+        "mean_ic": 0.0299,
+        "std": 0.1401,
+        "icir": 0.213,
+        "pct_days_positive": 0.607,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 2.36
+      },
+      "stripped4": {
+        "mean_ic": 0.024,
+        "std": 0.1268,
+        "icir": 0.189,
+        "pct_days_positive": 0.574,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 2.09
+      },
+      "stripped9": {
+        "mean_ic": 0.0247,
+        "std": 0.1205,
+        "icir": 0.205,
+        "pct_days_positive": 0.574,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 2.26
+      },
+      "top_minus_bottom_quintile_fwd1_pct": {
+        "raw": 0.0284,
+        "stripped4": 0.0503,
+        "stripped9": 0.0355
+      },
+      "calibration_1d": {
+        "coverage_of_path_range": 0.507,
+        "expected_if_calibrated": 0.818,
+        "mean_range_width_pct_of_close0": 2.421,
+        "mean_abs_actual_1d_return_pct": 1.345
+      },
+      "rank_corr_with": {
+        "rev5": 0.108,
+        "rev10": 0.027,
+        "mom20": 0.094,
+        "lowvol20": 0.072,
+        "rev1": 0.184,
+        "rev2": 0.153,
+        "rev3": 0.149,
+        "close_in_range": 0.301,
+        "intraday_rev": 0.207
+      },
+      "rank_corr_with_zeroshot": 0.621,
+      "vs_zeroshot_daily_ic_diff": {
+        "raw": {
+          "mean_diff": 0.0106,
+          "t": 1.21,
+          "days": 122,
+          "pct_days_a_better": 0.549
+        },
+        "stripped4": {
+          "mean_diff": 0.0092,
+          "t": 1.22,
+          "days": 122,
+          "pct_days_a_better": 0.598
+        },
+        "stripped9": {
+          "mean_diff": 0.0079,
+          "t": 1.03,
+          "days": 122,
+          "pct_days_a_better": 0.566
+        }
+      }
+    },
+    "lr4e-5": {
+      "raw": {
+        "mean_ic": 0.0271,
+        "std": 0.1397,
+        "icir": 0.194,
+        "pct_days_positive": 0.566,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 2.14
+      },
+      "stripped4": {
+        "mean_ic": 0.0217,
+        "std": 0.1274,
+        "icir": 0.17,
+        "pct_days_positive": 0.557,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 1.88
+      },
+      "stripped9": {
+        "mean_ic": 0.0211,
+        "std": 0.1206,
+        "icir": 0.175,
+        "pct_days_positive": 0.533,
+        "days": 122,
+        "independent_periods": 122.0,
+        "t_stat_overlap_adjusted": 1.93
+      },
+      "top_minus_bottom_quintile_fwd1_pct": {
+        "raw": 0.0421,
+        "stripped4": 0.0092,
+        "stripped9": 0.0613
+      },
+      "calibration_1d": {
+        "coverage_of_path_range": 0.51,
+        "expected_if_calibrated": 0.818,
+        "mean_range_width_pct_of_close0": 2.436,
+        "mean_abs_actual_1d_return_pct": 1.345
+      },
+      "rank_corr_with": {
+        "rev5": 0.059,
+        "rev10": 0.011,
+        "mom20": 0.072,
+        "lowvol20": 0.051,
+        "rev1": 0.131,
+        "rev2": 0.081,
+        "rev3": 0.084,
+        "close_in_range": 0.271,
+        "intraday_rev": 0.163
+      },
+      "rank_corr_with_zeroshot": 0.584,
+      "vs_zeroshot_daily_ic_diff": {
+        "raw": {
+          "mean_diff": 0.0078,
+          "t": 0.78,
+          "days": 122,
+          "pct_days_a_better": 0.557
+        },
+        "stripped4": {
+          "mean_diff": 0.0069,
+          "t": 0.82,
+          "days": 122,
+          "pct_days_a_better": 0.566
+        },
+        "stripped9": {
+          "mean_diff": 0.0044,
+          "t": 0.5,
+          "days": 122,
+          "pct_days_a_better": 0.582
+        }
+      }
+    }
+  },
+  "decision": {
+    "rule": "A fine-tuned variant is eligible if its 9-control-stripped mean RankIC exceeds zero-shot's on the same (day, stock) pairs AND its 4-control-stripped overlap-adjusted t >= 1.0. Choose the eligible variant with the highest 9-control-stripped mean RankIC. If none is eligible, chosen = null and E8 stops (no test run).",
+    "checks": {
+      "lr1e-5": {
+        "stripped9_mean_ic": 0.024654071741963907,
+        "zeroshot_stripped9_mean_ic": 0.016739026673764985,
+        "beats_zeroshot_stripped9": true,
+        "stripped4_t": 2.0893958059734348,
+        "stripped4_t_ok": true
+      },
+      "lr4e-5": {
+        "stripped9_mean_ic": 0.021102082683164134,
+        "zeroshot_stripped9_mean_ic": 0.016739026673764985,
+        "beats_zeroshot_stripped9": true,
+        "stripped4_t": 1.8798037452527219,
+        "stripped4_t_ok": true
+      }
+    },
+    "eligible": [
+      "lr1e-5",
+      "lr4e-5"
+    ],
+    "chosen": "lr1e-5",
+    "next": "E8_STAGE=test runs once on the test window"
+  }
+}

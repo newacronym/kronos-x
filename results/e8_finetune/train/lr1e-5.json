@@ -1,0 +1,78 @@
+{
+  "cfg": {
+    "model": "small",
+    "lookback": 90,
+    "horizon": 10,
+    "epochs": 4,
+    "steps_per_epoch": 2000,
+    "batch_size": 50,
+    "holdout_steps": 200,
+    "seed": 0,
+    "max_minutes": 150,
+    "lr": 1e-05,
+    "out_dir": "/ckpt/e8/lr1e-5"
+  },
+  "device_name": "Tesla T4",
+  "amp_fp16": true,
+  "n_tickers": 443,
+  "n_train_windows": 715937,
+  "n_holdout_windows": 61764,
+  "n_holdout_windows_used": 10000,
+  "window_bars": 101,
+  "skipped": {
+    "bad_bar": 0,
+    "corporate_action_break": 101,
+    "jump_gt_35pct": 1667,
+    "straddles_holdout_start": 42641
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "steps": 2000,
+      "train_loss": 3.0197628254890443,
+      "holdout_loss": 2.894623665809631,
+      "holdout_s1": 3.3696030950546265,
+      "holdout_s2": 2.419644238948822,
+      "minutes": 4.022502935333334
+    },
+    {
+      "epoch": 2,
+      "steps": 2000,
+      "train_loss": 2.9688322664499283,
+      "holdout_loss": 2.882025332450867,
+      "holdout_s1": 3.355476030111313,
+      "holdout_s2": 2.408574647307396,
+      "minutes": 4.02190003935
+    },
+    {
+      "epoch": 3,
+      "steps": 2000,
+      "train_loss": 2.9566363575458525,
+      "holdout_loss": 2.8769973731040954,
+      "holdout_s1": 3.3498726201057436,
+      "holdout_s2": 2.404122115969658,
+      "minutes": 4.022431748866667
+    },
+    {
+      "epoch": 4,
+      "steps": 2000,
+      "train_loss": 2.9545624400377273,
+      "holdout_loss": 2.876314606666565,
+      "holdout_s1": 3.349055063724518,
+      "holdout_s2": 2.4035741329193114,
+      "minutes": 4.0223759029
+    }
+  ],
+  "zero_shot_holdout_loss": 3.1430538201332094,
+  "zero_shot_holdout": {
+    "loss": 3.1430538201332094,
+    "s1": 3.6166777181625367,
+    "s2": 2.6694299364089966
+  },
+  "best_epoch": 4,
+  "best_holdout_loss": 2.876314606666565,
+  "beats_zero_shot": true,
+  "checkpoint": "/ckpt/e8/lr1e-5/best",
+  "stopped_early": false,
+  "total_seconds": 981.7061485700001
+}

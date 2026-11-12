@@ -1,0 +1,79 @@
+{
+  "train": {
+    "cfg": {
+      "model": "small",
+      "lookback": 90,
+      "horizon": 10,
+      "lr": 4e-05,
+      "epochs": 1,
+      "steps_per_epoch": 300,
+      "batch_size": 50,
+      "holdout_steps": 40,
+      "seed": 0,
+      "max_minutes": 150,
+      "train_end": "2024-06-30",
+      "holdout_start": "2023-07-01",
+      "out_dir": "/ckpt/e8/smoke",
+      "max_tickers": null,
+      "device": "cuda:0",
+      "clip": 5.0,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 3.0,
+      "log_every": 100,
+      "amp": null
+    },
+    "device_name": "Tesla T4",
+    "amp_fp16": true,
+    "n_tickers": 443,
+    "n_train_windows": 715937,
+    "n_holdout_windows": 61764,
+    "n_holdout_windows_used": 2000,
+    "window_bars": 101,
+    "skipped": {
+      "bad_bar": 0,
+      "corporate_action_break": 101,
+      "jump_gt_35pct": 1667,
+      "straddles_holdout_start": 42641
+    },
+    "epochs": [
+      {
+        "epoch": 1,
+        "steps": 300,
+        "train_loss": 3.0362871543566388,
+        "holdout_loss": 2.938329654932022,
+        "holdout_s1": 3.4192234337329865,
+        "holdout_s2": 2.457435888051987,
+        "minutes": 0.6103973439000001
+      }
+    ],
+    "zero_shot_holdout_loss": 3.147591257095337,
+    "zero_shot_holdout": {
+      "loss": 3.147591257095337,
+      "s1": 3.6240459382534027,
+      "s2": 2.671136516332626
+    },
+    "best_epoch": 1,
+    "best_holdout_loss": 2.938329654932022,
+    "beats_zero_shot": true,
+    "checkpoint": "/ckpt/e8/smoke/best",
+    "stopped_early": false,
+    "total_seconds": 134.750127367
+  },
+  "forecast": {
+    "shape": [
+      190,
+      10,
+      1,
+      6
+    ],
+    "gpu": "Tesla T4",
+    "seconds": 14.8,
+    "mean_abs_1d_forecast_return": 0.004744358777178354,
+    "finite": true
+  },
+  "wall_seconds": 176.1
+}

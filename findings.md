@@ -14,6 +14,11 @@ A running log of what each experiment showed. The newest entries go at the top o
   - The signal lasts one day and is gone if you wait a day.
 - **Not tradable as is.** The raw spread is about 0.10% a day with 62% daily turnover, which roughly equals NSE futures-level costs. Kronos's unique part (0.03% a day) is far below them.
 - **Bottom line so far:** for ranking Nifty 100 stocks on daily bars, zero-shot Kronos finds real but generic reversal structure that simple rules capture better.
+- **Fine-tuning on Nifty 500 (before Jul 2024) passed its test (E8).** Kronos's own next-day signal, after all 9 controls, rose from +0.0095 to +0.0137 (t 2.75), and raw RankIC from +0.025 to +0.032 (t 5.23).
+  - The day-by-day gain over zero-shot is not significant (t 0.95).
+  - It is still a one-day signal and still below trading costs.
+  - Calibration is unchanged.
+  - Training cost 33 T4-minutes.
 - **At T = 0.6 the sampled paths are overconfident.** The actual 10-day close fell inside the 10-path range 31% of the time, against 82% if calibrated. Volatility and risk work needs a higher temperature (E3).
 - **Single-stock point forecasts are poor.** On RELIANCE, the 10-day forecast had a larger error than predicting no change (E0).
 - **Power is limited.** Validation has about 11 independent 10-day periods, all in one correction regime. These results rule out a large edge, not a small one.
@@ -29,6 +34,78 @@ A running log of what each experiment showed. The newest entries go at the top o
 ---
 
 ## Log
+
+### E8 — fine-tune the predictor on Indian stocks · pre-registered and run 2026-11-12 · **test PASS** (gain over zero-shot not significant)
+
+**Question.** Does fine-tuning Kronos-small on Indian daily bars from before the validation window grow the part of its next-day signal that simple factors don't explain? That part is +0.0095 on test (T1b).
+
+**Setup, fixed before any training run.**
+- **Training data:** today's Nifty 500 list, daily bars 2015 → 2024-06-30 only. Training windows end before 2023-07-01. A holdout set from 2023-07-01 → 2024-06-30 tracks the loss and picks the best epoch; it's still inside the pre-training period. Nothing from the validation or test windows enters training, not even as a target.
+- **What's trained:** the predictor only. The tokenizer stays frozen at the pre-trained weights.
+- **Training recipe:** upstream's (lookback 90, predict 10, AdamW, OneCycle, gradient clip 3). 4 epochs × 2,000 steps × batch 50, on a T4 (the L4 queue never started a container).
+- **Windows dropped:** those crossing a known corporate action, or with a daily move over 35%, which is likely an unadjusted corporate action.
+- **Grid:** learning rate 1e-5 or 4e-5, upstream's default. That's two runs, and the best epoch of each is kept by holdout loss.
+- **Evaluation:** identical to T1. Nifty 100, Kronos-small, 90-bar lookback, 10 paths, T = 0.6, top-p = 0.9, next-day forecast.
+  - Zero-shot is re-run on validation with the same seeds, so any difference comes from the weights, not the sampling.
+- **Validation rule:** a fine-tuned run is eligible if both of these hold:
+  - its 9-control-stripped RankIC beats zero-shot's on the same (day, stock) pairs, and
+  - its 4-control-stripped t is at least 1.0.
+
+  Among eligible runs, the one with the highest 9-control-stripped RankIC is chosen. If none is eligible, E8 stops and the test window is not used.
+- **Test rule (one run on 2025-01-01 onward):** PASS if 9-control-stripped RankIC beats zero-shot's on the same pairs (+0.0095 overall in T1b) with t at least 2.0.
+- **Also reported, not part of either rule:** raw RankIC, 4-control-stripped RankIC, the quintile spread, turnover, and coverage of the 10-path range (expected 0.818).
+
+**Training** ([train/](results/e8_finetune/train/)). There were 443 usable tickers, giving 715,937 training windows and 61,764 holdout windows. The holdout loss is measured on a fixed sample of 10,000 holdout windows.
+
+| Run | Holdout loss | Best epoch | T4 time |
+|---|---|---|---|
+| Pre-trained | 3.143 | — | — |
+| lr 1e-5 | 2.876 | 4 | 16.4 min |
+| lr 4e-5 | 2.863 | 2 (flat after) | 16.5 min |
+
+The model adapts quickly to Indian bars: 300 steps already bring the holdout loss down to 2.94.
+
+**Validation** ([val/report.json](results/e8_finetune/val/report.json)). This covers 122 days and 11,590 forecasts per variant, using the same seeds for every variant.
+
+| Variant | Raw | 4-control stripped | 9-control stripped | Range coverage |
+|---|---|---|---|---|
+| Zero-shot | +0.019 (t 1.52) | +0.015 (t 1.35) | +0.017 (t 1.58) | 0.50 |
+| **lr 1e-5** | **+0.030 (t 2.36)** | **+0.024 (t 2.09)** | **+0.025 (t 2.26)** | 0.51 |
+| lr 4e-5 | +0.027 (t 2.14) | +0.022 (t 1.88) | +0.021 (t 1.93) | 0.51 |
+
+Both runs were eligible, and the rule chose **lr 1e-5**. Its day-by-day advantage over zero-shot was only t ≈ 1.0, so the gain was already uncertain at this stage.
+
+**Test** ([test/report.json](results/e8_finetune/test/report.json)). This covers 458 days and 44,251 forecasts. Zero-shot uses T1's forecasts on identical pairs, and the run took 1.11 T4-hours.
+
+| | Zero-shot (T1) | Fine-tuned lr 1e-5 |
+|---|---|---|
+| Raw RankIC | +0.025 (t 4.25) | **+0.032 (t 5.23)** |
+| 4-control stripped | +0.020 (t 3.96) | **+0.028 (t 5.27)** |
+| 9-control stripped (the rule) | +0.0095 (t 1.93) | **+0.0137 (t 2.75)** |
+| Entering at next open, 9-stripped | +0.009 (t 1.91) | +0.014 (t 2.88) |
+| Waiting one more day, 9-stripped | +0.001 | −0.003 |
+| Quintile spread a day: raw / 9-stripped | 0.101% / 0.029% | 0.097% / 0.043% |
+| Top-quintile daily turnover | 62% | 69% |
+| Coverage of the 10-path range (expect 0.818) | 0.50 | 0.50 |
+
+**Verdict: PASS** under the pre-registered rule. The 9-control-stripped RankIC is +0.0137 against +0.0095, with t 2.75.
+
+**What it means.**
+- **Fine-tuning helps, but less than it looks.**
+  - Every IC measure improves, and Kronos's own part (the residual after all 9 controls) grows by about 45%.
+  - The day-by-day difference from zero-shot, however, is not significant: +0.004 a day, t 0.95, better on 53% of days. The 4-control gain is clearer at t 1.87.
+  - The fine-tuned signal correlates only 0.59 with zero-shot's, so it is partly a different signal, not just a sharper one.
+- **It still leans on short-term reversal**, though less on 5–20-day factors. Its rank correlation with "closed near the day's low" is +0.30. The 9-control residual is negative in 3 of 8 quarters (2025Q2, 2026Q2, 2026Q3).
+- **Still a one-day signal.** It works when entering at the next open and is gone after a day's delay.
+- **Still not tradable.**
+  - The raw spread is unchanged at about 0.10% a day, while turnover rose to 69%.
+  - Kronos's own part earns 0.043% a day, still below NSE costs.
+- **Calibration unchanged.** The 10-path range still holds only 50% of next-day closes, so fine-tuning doesn't fix the overconfidence at T = 0.6.
+- **Total GPU:** 0.55 h training, 0.82 h validation, 1.11 h test, plus a 3-minute smoke test. About 2.5 T4-hours, roughly $1.50.
+
+**Next.**
+- The cheapest next test of whether this is real alpha is a cost-aware portfolio (E4) that uses the fine-tuned residual as one input next to reversal.
+- Before spending more on fine-tuning, a second seed of the lr 1e-5 run would show how much of the +0.004 gain is training noise.
 
 ### T1 — test run of the next-day signal · pre-registered and run 2026-11-12 · **PASS** (with large caveats, see T1b)
 

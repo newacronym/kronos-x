@@ -6,14 +6,22 @@ Tested zero-shot on Nifty 100 daily bars by ranking stocks cross-sectionally, as
 
 ## Result
 
-| | Test 2025–26 (458 days) |
-|---|---|
-| Kronos-small next-day RankIC, raw | +0.025 (t 4.25) |
-| Same, with reversal, momentum and low-vol removed | **+0.020 (t 3.96): passes the pre-registered rule** |
-| Same, with 1-day reversal effects also removed | +0.0095 (t 1.93) |
-| "Closed near the day's low" rule, for comparison | +0.043 |
+Next-day RankIC on the test window, 2025–26 (458 days):
 
-The signal is real and positive in all 8 quarters, but it is mostly well-known short-term reversal. It lasts one day, and at 62% daily turnover it doesn't survive NSE trading costs. The 10-day forecasts from the paper's setup showed no edge on validation, whatever the model size or lookback.
+| Signal | Zero-shot | Fine-tuned on Nifty 500 |
+|---|---|---|
+| Kronos-small, raw | +0.025 (t 4.25) | +0.032 (t 5.23) |
+| With reversal, momentum and low-vol removed | +0.020 (t 3.96) | +0.028 (t 5.27) |
+| With 1-day reversal effects also removed | +0.0095 (t 1.93) | **+0.0137 (t 2.75)** |
+| "Closed near the day's low" rule, for comparison | +0.043 | +0.043 |
+
+Both versions passed their pre-registered test.
+
+- **Zero-shot (T1):** the signal is real, but it is mostly well-known short-term reversal.
+- **Fine-tuning (E8):** trained on Nifty 500 data before Jul 2024, it raises every measure. Its day-by-day gain over zero-shot is not significant, though.
+- **What both share:** the signal lasts one day and turns over about 65% of the top quintile daily, so it doesn't survive NSE trading costs.
+
+The 10-day forecasts from the paper's setup showed no edge on validation, whatever the model size or lookback.
 
 ## Method
 
@@ -28,6 +36,7 @@ The signal is real and positive in all 8 quarters, but it is mostly well-known s
 | E3 | 10-day RankIC, validation | +0.015 raw, ≈ 0 after factors |
 | E5 | Ablation: base model, 400-bar lookback, 1-day horizon | 1-day chosen |
 | T1 | One run on the test window | Pass (see above) |
+| E8 | Fine-tune the predictor on Nifty 500 before Jul 2024 (33 T4-min) | Pass; gain over zero-shot not significant |
 
 ## Run
 
@@ -35,6 +44,7 @@ The signal is real and positive in all 8 quarters, but it is mostly well-known s
 uv sync
 uv run modal run modal_app.py --exp e3_rankic       # GPU work on a Modal T4
 uv run python -m experiments.t1b_robustness         # CPU-only analysis
+E8_STAGE=train uv run modal run modal_app.py --exp e8_finetune   # then E8_STAGE=val, then E8_STAGE=test
 ```
 
 Each experiment's `prepare()` downloads Yahoo Finance bars locally. `main()` or `orchestrate()` then runs on Modal, and the reports come back to `results/`. You need a Modal account (`modal setup`). Large forecast arrays aren't committed; rerun an experiment to regenerate them.

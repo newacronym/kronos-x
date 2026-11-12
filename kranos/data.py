@@ -29,6 +29,15 @@ def nifty100() -> pd.DataFrame:
     return pd.DataFrame({"symbol": df["Symbol"], "ticker": df["Symbol"] + ".NS", "industry": df["Industry"]})
 
 
+NIFTY500_FILE = UNIVERSE_DIR / "nifty500_2026-11-12.csv"  # E8 fine-tuning universe (training data only)
+
+
+def nifty500() -> pd.DataFrame:
+    """Symbol, Yahoo ticker and NSE industry for each Nifty 500 member (same survivorship caveat)."""
+    df = pd.read_csv(NIFTY500_FILE)
+    return pd.DataFrame({"symbol": df["Symbol"], "ticker": df["Symbol"] + ".NS", "industry": df["Industry"]})
+
+
 def load_cached(tickers: list[str]) -> dict[str, pd.DataFrame]:
     """Cached bars only (no network); tickers without a cache file are skipped."""
     return {t: pd.read_parquet(RAW_DIR / f"{t}.parquet") for t in tickers if (RAW_DIR / f"{t}.parquet").exists()}

@@ -1,0 +1,24 @@
+{
+  "model": "small",
+  "lookback": 90,
+  "horizon": 1,
+  "n_paths": 10,
+  "T": 0.6,
+  "top_p": 0.9,
+  "variant": "lr4e-5",
+  "checkpoint": "/ckpt/e8/lr4e-5/best",
+  "last_target_day": "2024-12-31",
+  "seed_base": 800,
+  "chunks": 5,
+  "gpu": "Tesla T4",
+  "gpu_seconds_total": 1002.3,
+  "gpu_seconds_per_chunk": [
+    234.2,
+    236.5,
+    196.6,
+    168.5,
+    166.5
+  ],
+  "obs": 11590,
+  "days": 122
+}
